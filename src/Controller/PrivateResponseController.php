@@ -36,7 +36,7 @@ class PrivateResponseController extends AbstractController
         return $this->json("cant be send", 204);
     }
 
-    #[Route('/edit/{privateResponse_id}', name: 'app_private_message_edit')]
+    #[Route('/edit/{privateResponse_id}', name: 'app_private_response_edit')]
     public function edit(
         Request $request,
         EntityManagerInterface $manager,

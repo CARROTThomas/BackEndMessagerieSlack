@@ -3,18 +3,203 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container mt-5 mb-5">
+        <h1 class="mb-4">API Documentation - VoyageVue</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <div class="accordion" id="accordionExample">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/thomas/Documents/projets/apiSlackSymfony/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/thomas/Documents/projets/apiSlackSymfony/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Project Description:
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        The project is a backend developed in PHP 8.2 and Symfony 6, dedicated to managing an online messaging system. It provides a platform for users to communicate with each other privately and publicly. Here is an overview of the main features: <br><br>
+
+                        <ul>
+                            <li><strong>Users and Friends:</strong><br> The system allows user registration and login, with profile management functionalities. Users can also add other users to their friends list.</li><br>
+                            <li><strong>Private Messages:</strong><br> Users can exchange private messages with another user, with a history of exchanged messages.</li><br>
+                            <li><strong>Private and Public Groups:</strong><br> Users can create private groups to discuss with a restricted set of members, or participate in discussions in public groups.</li><br>
+                            <li><strong>Message Sending:</strong><br> Users can send instant messages in private, private group, and public group conversations.</li><br>
+                        </ul><br>
+
+                        The goal of the project is to provide a robust and secure solution for online communication, focusing on user-friendliness, reliability, and privacy of exchanges. It aims to create a smooth and intuitive user experience while ensuring data security and protecting user privacy. <br><br>
+
+                        The developed messaging system offers a modern alternative to traditional messaging platforms, providing increased control over conversation management and online social interactions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Base URL:
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <code>apislack.thomascarrot.com</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        User
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Register: <code>/register</code></li>
+                            <li>Login: <code>/api/login_check</code></li>
+                            <li>Logout: (Endpoint non spécifié)</li>
+                            <li>Profil all_profile: <code>/api/profile/all</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Request
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>send_request_friend: <code>/api/request/send/{profile_id}</code></li>
+                            <li>get_all_yours_request: <code>/api/request/all</code></li>
+                            <li>accept_one_your_request: <code>/api/request/accept/{request_id}</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Friend
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>get_friends_all: <code>/api/friend/get</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Conversation
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>private_conversation_create: <code>/api/private/conversation/create/{profile_id}</code></li>
+                            <li>get_all_your_private_conversation: <code>/api/private/conversation/all</code></li>
+                            <li>get_all_messages_conversation: <code>/api/private/conversation/{private_conversation_id}/messages</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        Private Message
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>send_message: <code>/api/private/message/send/{private_conversation_id}</code></li>
+                            <li>remove_message: <code>/api/private/message/remove/{private_message_id}</code></li>
+                            <li>edit_message: <code>/api/private/message/edit/{private_message_id}</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        Private Response
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>send_response: <code>/api/private/response/send/{private_message_id}</code></li>
+                            <li>edit_response: <code>/api/private/response/edit/{private_message_id}</code></li>
+                            <li>remove_response: <code>/api/private/response/remove/{private_message_id}</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingNine">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                        Group Conversation
+                    </button>
+                </h2>
+                <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>group_conversation_create: <code>/api/group/conversation/create</code></li>
+                            <li>get_all_your_group_conversation: <code>/api/group/conversation/all</code></li>
+                            <li>get_all_messages_group_conversation: <code>/api/group/conversation/show/{group_conversation_id}</code></li>
+                            <li>add_profile_group_conversation: <code>/api/group/conversation/people/add/{group_conversation_id}/{profile_id}</code></li>
+                            <li>group_conversation_delete: <code>/api/group/conversation/delete/{group_conversation_id}</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTen">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                        Group Message
+                    </button>
+                </h2>
+                <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>send_message: <code>/api/group/conversation/send/{group_conversation_id}</code></li>
+                            <li>edit_response: <code>/api/group/conversation/edit/{group_conversation_id}</code></li>
+                            <li>remove_response: <code>/api/group/conversation/remove/{group_conversation_id}</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEleven">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                        Images
+                    </button>
+                </h2>
+                <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>upload_image_before_send_message: <code>/api/image</code></li>
+                            <li>response: <code>{ "status": "image upload", "imageId": 4, "imageUrl": "https://127.0.0.1:8000/media/cache/resolve/thumbnail/images/products/iconserver-65a4099f99cfa553628520.png" }</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 {% endblock %}

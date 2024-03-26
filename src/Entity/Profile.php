@@ -49,6 +49,9 @@ class Profile
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: GroupMessage::class)]
     private Collection $groupMessages;
 
+    #[ORM\OneToMany(mappedBy: 'uploadedBy', targetEntity: Image::class)]
+    private Collection $images;
+
     public function __construct()
     {
         $this->requests = new ArrayCollection();
@@ -58,6 +61,7 @@ class Profile
         $this->privateResponses = new ArrayCollection();
         $this->groupConversations = new ArrayCollection();
         $this->groupMessages = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -290,6 +294,36 @@ class Profile
             // set the owning side to null (unless already changed)
             if ($groupMessage->getAuthor() === $this) {
                 $groupMessage->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Image>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setUploadedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getUploadedBy() === $this) {
+                $image->setUploadedBy(null);
             }
         }
 

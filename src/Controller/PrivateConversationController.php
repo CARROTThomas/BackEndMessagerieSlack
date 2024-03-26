@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\PrivateConversation;
 use App\Entity\Profile;
 use App\Service\FriendshipChecker;
+use App\Service\ImagePostProcessing;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -56,9 +57,14 @@ class PrivateConversationController extends AbstractController
 
     #[Route('/{privateConversation_id}/messages', name: 'app_private_conversation_get_messages')]
     public function getAllMessagesByConversation(
+        ImagePostProcessing $imagePostProcessing,
         #[MapEntity(id: 'privateConversation_id')] PrivateConversation $privateConversation,
     ): Response
     {
+        foreach ($privateConversation->getPrivateMessages() as $pm) {
+            $imagePostProcessing->getImagesUrlFromImages($pm);
+        }
+
         if ($this->getUser() === $privateConversation->getIndividualA()->getProfileUser() || $this->getUser() === $privateConversation->getIndividualB()->getProfileUser()) {
             return $this->json($privateConversation->getPrivateMessages(), 200, [], ["groups"=>"message_private_conversation"]);
         }
