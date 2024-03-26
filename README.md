@@ -1,4 +1,4 @@
-<h1><strong>Projet Symfony : VoyageVue</strong></h1>
+<h1><strong>Projet Symfony : API Messagerie</strong></h1>
 
 url : <a href="apislack.thomascarrot.com">apislack.thomascarrot.com</a>
 
@@ -55,7 +55,7 @@ send_response   : /api/private/response/send/{private_message_id}
 edit_response   : /api/private/response/edit/{private_message_id}
 remove_response : /api/private/response/remove/{private_message_id}
 
-Group Message
+Group Conversation
 group_conversation_create           : /api/group/conversation/create
 get_all_your_group_conversation     : /api/group/conversation/all
 get_all_messages_group_conversation : /api/group/conversation/show/{group_conversation_id}
