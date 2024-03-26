@@ -4,78 +4,23 @@ url : <a href="apislack.thomascarrot.com">apislack.thomascarrot.com</a>
 
 Description du Projet :
 
-Mise en place d'une api messagerie, 
+Description du Projet
+Le projet est un backend développé en PHP 8.2 et Symfony 6, dédié à la gestion d'une messagerie en ligne. Il offre une plateforme permettant aux utilisateurs de communiquer entre eux de manière privée et publique. Voici un aperçu des principales fonctionnalités :
 
+Utilisateurs et Amis
+Gestion des Utilisateurs : Le système permet l'inscription et la connexion des utilisateurs, avec des fonctionnalités de gestion de profil.
+Liste d'Amis : Les utilisateurs peuvent ajouter d'autres utilisateurs à leur liste d'amis et voir la liste d'amis d'autres utilisateurs.
+Messages Privés
+Conversation Privée : Les utilisateurs peuvent échanger des messages privés avec un autre utilisateur.
+Historique de Messages : Les conversations privées incluent un historique des messages échangés entre les utilisateurs.
+Groupes Privés et Publics
+Groupes Privés : Les utilisateurs peuvent créer des groupes privés pour discuter avec un ensemble restreint de membres.
+Groupes Publics : Des groupes publics sont disponibles pour permettre à un grand nombre d'utilisateurs de participer à des discussions thématiques ouvertes.
+Envoi de Messages
+Messages Instantanés : Les utilisateurs peuvent envoyer des messages instantanés dans les conversations privées, les groupes privés et publics.
+Objectif du Projet
+Le projet vise à fournir une solution robuste et sécurisée pour la communication en ligne, en mettant l'accent sur la convivialité, la fiabilité et la confidentialité des échanges. Il s'agit de créer une expérience utilisateur fluide et intuitive tout en garantissant la sécurité des données et la protection de la vie privée des utilisateurs.
 
+La messagerie développée offre une alternative moderne aux plateformes de messagerie traditionnelles, offrant un contrôle accru sur la gestion des conversations et des interactions sociales en ligne.
 
-<h2><strong>Documentation</strong></h2>
-
-base url : apislack.thomascarrot.com
-
-User
-
-register : /register
-login    : /api/login_check
-logout   : 
-
-
-Profil 
-all_profille : /api/profile/all
-
-
-Request 
-
-send_request_friend     : /api/request/send/{profile_id}
-get_all_yours_request   : /api/request/all
-accept_one_your_request : /api/request/accept/{request_id}
-
-
-Friend
-
-get_friends_all : /api/friend/get
-
-
-Conversation
-
-private_conversation_create       : /api/private/conversation/create/{profile_id}
-get_all_your_private_conversation : /api/private/conversation/all
-get_all_messages_conversation     : /api/private/conversation/{private_conversation_id}/messages
-
-
-Private Message
-
-send_message   : /api/private/message/send/{private_conversation_id}
-remove_message : /api/private/message/remove/{private_message_id}
-edit_message   : /api/private/message/edit/{private_message_id}
-
-
-Private Response
-
-send_response   : /api/private/response/send/{private_message_id}
-edit_response   : /api/private/response/edit/{private_message_id}
-remove_response : /api/private/response/remove/{private_message_id}
-
-Group Conversation
-group_conversation_create           : /api/group/conversation/create
-get_all_your_group_conversation     : /api/group/conversation/all
-get_all_messages_group_conversation : /api/group/conversation/show/{group_conversation_id}
-add_profile_group_conversation      : /api/group/conversation/people/add/{group_conversation_id}/{profile_id}
-group_conversation_delete           : /api/group/conversation/delete/{group_conversation_id}
-
-
-Group Message
-
-send_message    : /api/group/conversation/send/{group_conversation_id}
-edit_response   : /api/group/conversation/edit/{group_conversation_id}
-remove_response : /api/group/conversation/remove/{group_conversation_id}
-
-
-Images
-
-upload_image_before_send_message : /api/image
-response : 
-{
-    "status": "image upload",
-    "imageId": 4,
-    "imageUrl": "https://127.0.0.1:8000/media/cache/resolve/thumbnail/images/products/iconserver-65a4099f99cfa553628520.png"
-}
+Cette description met en évidence les principales fonctionnalités et objectifs du projet de messagerie backend développé en PHP 8.2 et Symfony 6.
